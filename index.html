@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="favicon.png">
+		<title>micro-coding</title>
+
+		<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+
+		<link rel="stylesheet" href="css/style.css" />
+
+	</head>
+	
+  <body>
+
+  	<div class="row">
+  	  <div class="span4">
+  	  		<p class="text-info">This is a design experiment. andasd asda djhaksd ha sdashjkd ajkshd adasd</p>
+  	  		<p class="text-info" id="sticky2">Fork on github and picture</p>
+  	  		
+  	  </div>
+  	  <div class="span8">
+  	  			<div class="container">
+  	  				{% for greeting in greetings %}
+  	  							<div class='post'>
+  	  					{% if greeting.title %}
+  	  							<div class='title' align='center'>{{ greeting.title }}</div><br>
+  	  					{% endif %}
+  	  	      		            <div class='message'>{{ greeting.content|escape }}</div>
+  	  					{% if greeting.author %}
+  	  						    <small><strong><p class="author" align="right">By {{ greeting.author }}</p></strong></small>
+  	  					{% else %}
+  	  	        			    <small><strong><p class="author">By some anonymous douchebag</p></strong></small>
+  	  	      		    {% endif %}
+  	  					
+  	  	      	            	</div>
+  	  	            {% endfor %}	 						
+  	  	        
+  	  	        </div>
+  	  </div>
+  	  <div class="span4">
+  	  	<p class="text-info">Powered by GAE, twitter boot strap</p>
+  		<div class="formcontainer">
+  			<form class='form' action="/sign" method="post">
+  				<input type="text" name="title" placeholder="Title"/>
+  	      		<textarea name="content" rows="3" cols="60" placeholder="Your Post"></textarea>
+  				<input type="text" name="alias" placeholder="Your name"/>
+  	      		<button class="btn btn-large btn-block btn-primary" type="submit">Post</button>
+  			</form>			
+  		</div>	
+  	  </div>
+  	</div>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="js/script.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/prefixfree.min.js"></script>
+		<script src="js/jquery.bpopup-0.8.0.min.js"></script>
+  </body>
+</html>
+
+
+

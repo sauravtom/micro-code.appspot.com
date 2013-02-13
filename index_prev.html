@@ -1,0 +1,21 @@
+<html>
+  <body>
+  <div id='title'>Post Your Thoughts</div>
+    {% for greeting in greetings %}
+      {% if greeting.author %}
+        <div id='author'>{{ greeting.author }}</div> wrote:
+      {% else %}
+        <div id='anon'>An anonymous douchebag wrote:</div>
+      {% endif %}
+      <div id='message'><blockquote>{{ greeting.content|escape }}</blockquote></div>
+    {% endfor %}
+
+    <form action="/sign" method="post">
+      <div><textarea name="content" rows="3" cols="60"></textarea></div>
+      <div><input type="submit" value="Post Your Thoughts"></div>
+    </form>
+
+    <a href="{{ url }}">{{ url_linktext }}</a>
+
+  </body>
+</html>
