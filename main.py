@@ -29,7 +29,7 @@ class MainPage(webapp.RequestHandler):
         guestbook_name=self.request.get('guestbook_name')
         greetings_query = Greeting.all().ancestor(
             guestbook_key(guestbook_name)).order('-date')
-        greetings = greetings_query.fetch(10)
+        greetings = greetings_query.fetch(50)
         template_values = {
             'greetings': greetings,
             #'url': url,
