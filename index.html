@@ -3,12 +3,13 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="favicon.png">
-		<title>micro-coding</title>
+		<title>micro-code</title>
 
 		<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 
 		<link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="highlight.js/styles/solarized_light.css">
 
 	</head>
 	
@@ -16,8 +17,9 @@
 
   	<div class="row">
   	  <div class="span4">
-  	  		<p class="text-info">This is a just a design experiment.Feel free to post anything here.</p>
-  	  		<p class="text-info" id="sticky2"><a href="https://github.com/sauravtom/micro-code.appspot.com">Fork this github</a></p>
+  	  		<p class="text-info" id="sticky2"><a href="https://github.com/sauravtom/micro-code.appspot.com">Fork this github</a>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-text="Check out microcode.appspot.com , and share small snippets of code." data-via="SauravTom">Tweet</a>
+          </p>
   	  		
   	  </div>
   	  <div class="span8">
@@ -27,7 +29,9 @@
   	  					{% if greeting.title %}
   	  							<div class='title' align='center'>{{ greeting.title }}</div><br>
   	  					{% endif %}
-  	  	      		            <div class='message'>{{ greeting.content|escape }}</div>
+  	  	      		            <div class='message'>
+                                <pre><code>{{ greeting.content }}</code></pre>
+                              </div>
   	  					{% if greeting.author %}
   	  						    <small><strong><p class="author" align="right">By {{ greeting.author }}</p></strong></small>
   	  					{% else %}
@@ -40,12 +44,14 @@
   	  	        </div>
   	  </div>
   	  <div class="span4">
-  	  	<p class="text-info">Powered by <a href="https://appengine.google.com/">Google AppEngine</a> and <a href="http://twitter.github.com/bootstrap/index.html">twitter bootstrap</a></p>
+  	  	<p class="text-info">Powered by <a href="https://appengine.google.com/">Google AppEngine</a> and <a href="http://twitter.github.com/bootstrap/index.html">twitter bootstrap</a>
+           and <a href="http://softwaremaniacs.org/soft/highlight/en/">highlight.js</a>
+        </p>
   		<div class="formcontainer">
   			<form class='form' action="/sign" method="post">
-  				<input type="text" name="title" placeholder="Title"/>
-  	      		<textarea name="content" rows="3" cols="60" placeholder="Your Post"></textarea>
-  				<input type="text" name="alias" placeholder="Your name"/>
+  				<input type="text" name="title" placeholder="The title has it all"/>
+  	      		<textarea class="code" name="content" rows="3" cols="60" placeholder="Code Goes here"></textarea>
+  				<input type="text" name="alias" placeholder="Who are you again ?"/>
   	      		<button class="btn btn-large btn-block btn-primary" type="submit">Post</button>
   			</form>			
   		</div>	
@@ -57,6 +63,13 @@
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/prefixfree.min.js"></script>
 		<script src="js/jquery.bpopup-0.8.0.min.js"></script>
+
+    <script src="highlight.js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
   </body>
 </html>
 

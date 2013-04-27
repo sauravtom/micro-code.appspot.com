@@ -55,3 +55,14 @@ body{
   background:rgba(15, 33, 243, 0.18);
   opacity:0.8;
 }
+
+.code{
+    //height:20px;
+    //width:150px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+}
+
+.code:focus{
+    height:200px;
+}
